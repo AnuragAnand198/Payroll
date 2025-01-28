@@ -1,0 +1,101 @@
+body{
+	margin:0;
+	padding:0;
+	background:url(images/log.jpeg);
+	background-repeat: no-repeat;
+	background-size: 800px 700px;
+	font-family:sens-serif;
+}
+
+.loginbox{
+	position: absolute;
+	top: 45%;
+    left: 75%;
+	transform: translate(-50%,-50%);
+	height:420px;
+	width:350px;
+	padding: 80px 40px;  
+	box-sizing: border-box;
+	background: rgba(255,255,255,.4);
+}
+
+h3{
+	margin:0;
+	padding:0 0 20px;
+	color: black;
+	/* text-align: center; */
+	font-family: 'Trebuchet MS';
+
+	font-size:32px;
+}
+
+.loginbox p{
+	margin:0;
+	padding:0;
+	font-family: 'Century Gothic';
+	/* font-weight:bold; */
+	color:black;
+	
+}
+
+.loginbox input{
+	width:100%;
+	margin-bottom: 20px; 
+}
+
+
+input{
+	border: none;
+	border-bottom:  1px solid black; 
+	border-radius: 2%;
+	background: transparent;
+	outline:none;
+	height:45px; 
+	color:black;
+	font-size:16px;
+	
+}
+
+::placeholder{
+	color:rgba(0,0,0,.9);
+}
+
+.loginbox input[type="submit"]
+{
+	border:none;
+	outline:none;
+	height:40px;
+	color:black;
+	font-size:16px;
+	background:#847DFF;
+	cursor:pointer;
+	border-radius:20px;
+}
+
+.loginbox input[type="submit"]:hover{
+	background: lightgreen;
+	color: blue;
+}
+
+.myButton {
+	box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	background-color:#a73f2d;
+	border-radius:42px;
+	border:2px solid #241d13;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:10px 31px;
+	text-decoration:none;
+	text-shadow:1px -1px 1px #7a2a1d;
+}
+.myButton:hover {
+	background-color:#b34332;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}

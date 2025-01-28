@@ -1,0 +1,130 @@
+<div class="w3-dark-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
+
+
+---------------------------------------------------------------------------
+
+
+this code display department data
+
+
+<?php
+       include('configall.php');
+       
+       $sql="SELECT * FROM department;";
+       $result=mysqli_query($connection,$sql);
+       $resultcheck=mysqli_num_rows($result);
+       echo"<table>";
+       echo"<tr><th>Department id</th><th>Department Name</th><th>Action</th></tr>";
+       if($resultcheck>0){
+           while($row=mysqli_fetch_assoc($result)){
+               echo"<tr>";
+               echo"<td>";
+                echo $row['Depart_id'];
+               echo"</td>";
+               echo"<td>";
+                echo $row['Depart_name'];
+               echo"</td>";
+               echo"<td>";
+                echo "<a>Edit</a>";
+               echo"</td>";
+                echo"<td>";
+                echo "<a>Delete</a>";
+               echo"</td>";
+               echo"</tr>";
+           }
+           echo"</table>";
+       }
+       ?>
+
+
+-------------------------------------------------
+this code display employee data
+
+<?php
+       include('configall.php');
+       
+       $sql="SELECT Employee_id,Name,Email,salary,jobtitle,Depart_id FROM `employee`;";
+       $result=mysqli_query($connection,$sql);
+       $resultcheck=mysqli_num_rows($result);
+       echo"<table>";
+       echo"<tr><th>Employee id</th><th>Name</th><th>Email</th><th>Salary</th><th>Job title</th><th>Department</th></tr>";
+       if($resultcheck>0){
+           while($row=mysqli_fetch_assoc($result)){
+               echo"<tr>";
+               echo"<td>";
+                echo $row['Employee_id'];
+               echo"</td>";
+               echo"<td>";
+                echo $row['Name'];
+               echo"</td>";
+               echo"<td>";
+                echo $row['Email'];
+               echo"</td>";
+               echo"<td>";
+                echo $row['salary'];
+               echo"</td>";
+               echo"<td>";
+                echo $row['jobtitle'];
+               echo"</td>";
+               echo"<td>";
+                echo $row['Depart_id'];
+               echo"</td>";       
+               echo"</tr>";
+           }
+           echo"</table>";
+       }
+       ?>
+--------------------------------------------------------------
+
+$id = $_GET['edit'];
+$rec = mysqli_query($connection, "SELECT * FROM employee WHERE Employee_id=$id");
+$record=mysqli_fetch_array($rec);
+    
+$name=$record['Name'];
+$dob=$record['d_birth'];
+$gender=$record['gender'];
+$sdate=$record['Start_date'];
+$email=$record['Email'];
+$phone=$record['Phone_no'];
+$loan=$record['loan'];
+$pfund=$record['pfund'];
+$salary=$record['salary'];
+$jobtitle=$record['jobtitle'];
+$address=$record['Address'];
+$depid=$record['Depart_id'];
+$manid=$record['managesDepart_id'];
+$bacc=$record['b_accno'];
+
+
+---------------------------------------------------------
+
+
+$sqlll="UPDATE employee SET Name='$name',Address='$address',Phone_no='$phone',Email='$email',Start_date='$sdate',d_birth='$dob',gender='$gender',loan='$loan',pfund='$pfund',salary='$salary',jobtitle='$jobtitle',Depart_id='$depid',managesDepart_id=',$manid',b_accno='$bacc' WHERE Employee_id=$empid;";
+    $ff=mysqli_query($connection,$sqlll);
+
+
+--------------------------------------
+
+INSERT INTO `payment` (`pay_no`, `emp_id`, `year`, `month`, `absence`, `loan_cut`, `pfund_cut`, `overtime`, `season_bonus`, `medi_allow`, `house_allow`, `total_pay`) VALUES (NULL, '1604070', '2018', 'december', '3', '200', '500', '6', '4000', '1000', '3000', '4000000')
+
+----------------------------------------------------------------------------------
+<table>
+           <tr><th>Payment no</th>
+               <th>Employee id</th>
+               <th>Name</th>
+               <th>Bank account no</th>
+               <th>Job title</th>
+               <th>Total salary</th>
+               
+           <?php while($row=mysqli_fetch_array($result)) {?>
+           <tr>
+               <td><?php echo $row['pay_no']; ?></td>
+               <td><?php echo $row['emp_id']; ?></td>
+               <td><?php echo $row['name']; ?></td>
+               <td><?php echo $row['accno']; ?></td>
+               <td><?php echo $row['total_pay']; ?></td>
+               
+               
+           </tr>
+           <?php } ?>
+       </table>
